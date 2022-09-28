@@ -7,7 +7,7 @@
     Listado items de X categoria
 
     Nota: En los items tiene que ser visible el nombre de la categoria
-        Puedo usar el nombre de categoria como pk? o está mal visto?
+    hacer join a conciencia
 
 ### Autenticación para menu administrador
     Login con usuario y clave para acceder a menu administrador
