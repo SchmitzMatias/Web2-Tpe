@@ -14,7 +14,7 @@ class CategoryModel{
     }
 
     function getAll(){
-        $query = $this->db->prepare('SELECT * from category');
+        $query = $this->db->prepare('SELECT * from categories');
         $query->execute();
 
         $category = $query->fetchAll(PDO::FETCH_OBJ);

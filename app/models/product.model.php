@@ -23,7 +23,7 @@ class ProductModel{
     }
     
     function insert($name,$description,$price,$category){
-        $query = $this->db->prepare('INSERT INTO products (name,description,price,category) VALUES(?,?,?,?)');
+        $query = $this->db->prepare('INSERT INTO products (name,description,price,id_category_fk) VALUES(?,?,?,?)');
         $query->execute([$name,$description,$price,$category]);
 
         return $this->db->lastInsertId();
