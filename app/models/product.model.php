@@ -28,4 +28,9 @@ class ProductModel{
 
         return $this->db->lastInsertId();
     }
+
+    function delete($id) {
+        $query = $this->db->prepare('DELETE FROM products WHERE id = ?');
+        $query->execute([$id]);
+    }
 }

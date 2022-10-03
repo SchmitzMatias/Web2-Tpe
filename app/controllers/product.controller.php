@@ -36,4 +36,9 @@ class ProductController{
 
         header("Location: " . BASE_URL); 
     }
+
+    function removeProduct($id) {
+        $this->model->delete($id);
+        header("Location: " . BASE_URL); 
+    }
 }

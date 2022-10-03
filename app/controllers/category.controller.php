@@ -32,4 +32,9 @@ class CategoryController{
 
         header("Location: " . BASE_URL); 
     }
+
+    function removeCategory($id) {
+        $this->model->delete($id);
+        header("Location: " . BASE_URL); 
+    }
 }

@@ -28,11 +28,19 @@ switch ($path) {
     case 'category/add':
         $categoryController->addCategory();
         break;
+    case 'category/remove':
+        $id = $params[2];
+        $categoryController->removeCategory($id);
+        break;
     case 'product/list':
         $productController->showProducts();
         break;
     case 'product/add':
         $productController->addProduct();
+        break;
+    case 'product/delete':
+        $id = $params[2];
+        $productController->removeProduct($id);
         break;
     default:
         header("HTTP/1.0 404 Not Found");

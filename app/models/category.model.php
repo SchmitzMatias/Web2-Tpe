@@ -28,4 +28,9 @@ class CategoryModel{
 
         return $this->db->lastInsertId();
     }
+
+    function delete($id) {
+        $query = $this->db->prepare('DELETE FROM categories WHERE id = ?');
+        $query->execute([$id]);
+    }
 }
