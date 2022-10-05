@@ -17,6 +17,12 @@ class ProductView{
         $this->smarty->display('productList.tpl');
     }
 
+    function showProduct($product){
+        $this->smarty->assign('product',$product);
+
+        $this->smarty->display('productDetails.tpl');
+    }
+
     function showError($message){
         echo "Error: $message";
     }

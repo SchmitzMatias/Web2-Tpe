@@ -21,6 +21,12 @@ class ProductController{
         $this->view->showProducts($products,$categories);
     }
 
+    function getProduct($id){
+        $product = $this->model->get($id);
+
+        $this->view->showProduct($product);
+    }
+
     function addProduct(){
         $name = $_POST['name'];
         $price = $_POST['price'];

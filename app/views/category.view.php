@@ -15,6 +15,12 @@ class CategoryView{
         $this->smarty->display('categoryList.tpl');
     }
 
+    function showCategory($category){
+        $this->smarty->assign('category',$category);
+
+        $this->smarty->display('categoryDetails.tpl');
+    }
+
     function showError($message){
         echo "Error: $message";
     }

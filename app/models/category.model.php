@@ -17,7 +17,16 @@ class CategoryModel{
         $query = $this->db->prepare('SELECT * from categories');
         $query->execute();
 
-        $category = $query->fetchAll(PDO::FETCH_OBJ);
+        $categories = $query->fetchAll(PDO::FETCH_OBJ);
+
+        return $categories;
+    }
+
+    function get($id){
+        $query = $this->db->prepare('SELECT * from categories WHERE id= ?');
+        $query->execute([$id]);
+
+        $category = $query->fetch(PDO::FETCH_OBJ);
 
         return $category;
     }

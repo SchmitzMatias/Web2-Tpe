@@ -19,6 +19,12 @@ class CategoryController{
         $this->view->showCategories($categories);
     }
 
+    function getCategory($id){
+        $category = $this->model->get($id);
+
+        $this->view->showCategory($category);
+    }
+
     function addCategory(){
         $name = $_POST['name'];
         $description = $_POST['description'];

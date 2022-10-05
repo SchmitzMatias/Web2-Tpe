@@ -20,8 +20,17 @@ $categoryController = new CategoryController();
 
 // tabla de ruteo
 //switch ($params[0] . '/' . $params[1])
-$path = $params[0] . "/" . $params[1];
+if(is_numeric($params[1])){
+    $path=$params[0];
+    $id= $params[1];
+}
+else{
+    $path = $params[0] . "/" . $params[1];
+}
 switch ($path) {
+    case 'category':
+        $categoryController->getCategory($id);
+        break;
     case 'category/list':
         $categoryController->showCategories();
         break;
@@ -31,6 +40,9 @@ switch ($path) {
     case 'category/remove':
         $id = $params[2];
         $categoryController->removeCategory($id);
+        break;
+    case 'product':
+        $productController->getProduct($id);
         break;
     case 'product/list':
         $productController->showProducts();

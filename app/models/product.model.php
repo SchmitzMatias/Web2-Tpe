@@ -21,6 +21,15 @@ class ProductModel{
 
         return $products;
     }
+
+    function get($id){
+        $query = $this->db->prepare('SELECT * from products WHERE id=?');
+        $query->execute([$id]);
+
+        $product = $query->fetch(PDO::FETCH_OBJ);
+
+        return $product;
+    }
     
     function insert($name,$description,$price,$category){
         $query = $this->db->prepare('INSERT INTO products (name,description,price,id_category_fk) VALUES(?,?,?,?)');
