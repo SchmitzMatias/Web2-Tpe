@@ -33,4 +33,9 @@ class ProductModel{
         $query = $this->db->prepare('DELETE FROM products WHERE id = ?');
         $query->execute([$id]);
     }
+
+    function update($id,$name,$description,$price,$category){
+        $query = $this->db->prepare('UPDATE products SET name = ? , description = ? , price = ? , id_category_fk = ? WHERE id = ? ');
+        $query->execute([$name,$description,$price,$category,$id]);
+    }
 }

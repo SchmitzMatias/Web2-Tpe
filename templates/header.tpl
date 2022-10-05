@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <base href="<?php echo BASE_URL ?>">
+    <base href="{BASE_URL}">
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,14 +14,19 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
-              {* <a class="navbar-brand" href="">TUDAI TodoList</a> *}
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                   <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="">Home</a>
+                    <a class="nav-link" aria-current="page" href="">Inicio</a> {* TODO porqué al clickear acá manda a inicio? *}
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="product/list">Productos</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="category/list">Categorias</a>
                   </li>
                 </ul>
               </div>
