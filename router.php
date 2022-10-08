@@ -11,15 +11,9 @@ if (!empty($_GET['action'])) {
 
 $params = explode('/', $action);
 
-// instancio el unico controller que existe por ahora
 $productController = new ProductController();
 $categoryController = new CategoryController();
-// product/list -> lista todos los pro
-// product/detail/ID -> lista un solo producto
-// category -> lista todas las categorias
 
-// tabla de ruteo
-//switch ($params[0] . '/' . $params[1])
 if(is_numeric($params[1])){
     $path=$params[0];
     $id= $params[1];
