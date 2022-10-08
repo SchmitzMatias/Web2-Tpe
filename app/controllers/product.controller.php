@@ -14,11 +14,17 @@ class ProductController{
         $this->view = new ProductView;
     }
 
-    function showProducts(){
+    function getProducts(){
         $products = $this->model->getAll();
         $categories = $this->categoryModel->getAll();
 
         $this->view->showProducts($products,$categories);
+    }
+
+    function getProductsByCategory($categoryId){
+        $products = $this->model->getAllByCategoryId($categoryId);
+
+        $this->view->showProducts($products,null); //TODO validar el null, repensarlo.
     }
 
     function getProduct($id){

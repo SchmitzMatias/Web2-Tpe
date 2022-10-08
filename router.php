@@ -39,7 +39,12 @@ switch ($path) {
         $productController->getProduct($id);
         break;
     case 'product/list':
-        $productController->showProducts();
+        if(!empty($params[2])&&is_numeric($params[2])){
+            $id = $params[2];
+            $productController->getProductsByCategory($id);
+        }else{
+            $productController->getProducts();
+        }
         break;
     case 'product/add':
         $productController->addProduct();

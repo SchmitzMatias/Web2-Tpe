@@ -30,6 +30,16 @@ class ProductModel{
 
         return $product;
     }
+
+    function getAllByCategoryId($categoryId){
+        $query = $this->db->prepare('SELECT p.name, p.description, p.price, c.name as category from products p INNER JOIN categories c ON p.id_category_fk = c.id
+        WHERE p.id_category_fk = ?');
+        $query->execute([$categoryId]);
+
+        $products = $query->fetchAll(PDO::FETCH_OBJ);
+
+        return $products;
+    }
     
     function insert($name,$description,$price,$category){
         $query = $this->db->prepare('INSERT INTO products (name,description,price,id_category_fk) VALUES(?,?,?,?)');
