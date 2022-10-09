@@ -21,6 +21,12 @@ class CategoryView{
         $this->smarty->display('categoryDetails.tpl');
     }
 
+    function showUpdateCategoryForm($id){
+        $this->smarty->assign('id',$id);
+
+        $this->smarty->display('updateCategoryForm.tpl');
+    }
+
     function showError($message){
         echo "Error: $message";
     }

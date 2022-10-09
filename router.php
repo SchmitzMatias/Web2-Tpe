@@ -31,6 +31,14 @@ switch ($path) {
     case 'category/add':
         $categoryController->addCategory();
         break;
+    case 'category/update':
+        $id = $params[2];
+        $categoryController->updateCategory($id);
+        break;
+    case 'category/save':
+        $id = $params[2];
+        $categoryController->saveCategoryUpdate($id);
+        break;
     case 'category/remove':
         $id = $params[2];
         $categoryController->removeCategory($id);
@@ -48,6 +56,14 @@ switch ($path) {
         break;
     case 'product/add':
         $productController->addProduct();
+        break;
+    case 'product/update':
+        $id = $params[2];
+        $productController->updateProduct($id);
+        break;
+    case 'product/save':
+        $id = $params[2];
+        $productController->saveProductUpdate($id);
         break;
     case 'product/delete':
         $id = $params[2];

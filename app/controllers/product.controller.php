@@ -35,10 +35,9 @@ class ProductController{
 
     function addProduct(){
         $name = $_POST['name'];
-        $price = $_POST['price'];
         $description = $_POST['description'];
+        $price = $_POST['price'];
         $category = $_POST['category'];
-        echo $category;
         if(empty($name)||empty($price)){
             $this->view->showError("Faltan datos obligatorios");
             die();
@@ -47,6 +46,36 @@ class ProductController{
         $id = $this->model->insert($name,$description, $price, $category);
 
         header("Location: " . BASE_URL); 
+    }
+
+    function updateProduct($id){
+        $categories = $this->categoryModel->getAll();
+
+        $this->view->showUpdateProductForm($id,$categories);
+    }
+
+    function saveProductUpdate($id){
+        $name = $_POST['name'];
+        $description = $_POST['description'];
+        $price = $_POST['price'];
+        $category = $_POST['category']; //TODO this has to be a id_cat_fk, not name, maybe add cat_id on product? on top of name i mean.
+        $product = $this->model->get($id);
+
+        if(!empty($name)){
+            $product->name= $name;
+        }
+        if(!empty($description)){
+            $product->description= $description;
+        }
+        if(!empty($price)){
+            $product->price= $price;
+        }
+        if(!empty($category) && $category!=0){
+            $product->id_category_fk= $category;
+        }
+        $this->model->update($id,$product->name,$product->description,$product->price,$product->id_category_fk);
+
+        header("Location: " . BASE_URL);
     }
 
     function removeProduct($id) {

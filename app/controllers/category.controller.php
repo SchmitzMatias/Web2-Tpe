@@ -34,9 +34,31 @@ class CategoryController{
             die();
         }
         
-        $id = $this->model->insert($name,$description);
+        $id = $this->model->insert($name,$description); //TODO do something with this id or remove variable
 
         header("Location: " . BASE_URL); 
+    }
+
+    function updateCategory($id){
+        $this->view->showUpdateCategoryForm($id);
+    }
+
+    function saveCategoryUpdate($id){
+        $name = $_POST['name'];
+        $description = $_POST['description'];
+        
+        $category = $this->model->get($id);
+
+        if(!empty($name)){
+            $category->name= $name;
+        }
+        if(!empty($description)){
+            $category->description= $description;
+        }
+
+        $this->model->update($id,$category->name,$category->description);
+        
+        header("Location: " . BASE_URL);
     }
 
     function removeCategory($id) {

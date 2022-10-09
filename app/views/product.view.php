@@ -23,6 +23,13 @@ class ProductView{
         $this->smarty->display('productDetails.tpl');
     }
 
+    function showUpdateProductForm($id,$categories){
+        $this->smarty->assign('id',$id);
+        $this->smarty->assign('categories',$categories);
+
+        $this->smarty->display('updateProductForm.tpl');
+    }
+
     function showError($message){
         echo "Error: $message";
     }
