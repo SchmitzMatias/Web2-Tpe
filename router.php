@@ -1,6 +1,7 @@
 <?php
 require_once 'app/controllers/product.controller.php';
 require_once 'app/controllers/category.controller.php';
+require_once 'app/controllers/auth.controller.php';
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -14,14 +15,30 @@ $params = explode('/', $action);
 $productController = new ProductController();
 $categoryController = new CategoryController();
 
-if(is_numeric($params[1])){
-    $path=$params[0];
-    $id= $params[1];
+$path=$params[0];
+
+if (count($params)>1){
+    if(is_numeric($params[1])){
+        $id= $params[1];
+    }
+    else{
+        $path = $path . "/" . $params[1];
+    }
 }
-else{
-    $path = $params[0] . "/" . $params[1];
-}
+
 switch ($path) {
+    case 'login':
+        $authController = new AuthController();
+        $authController->showFormLogin();
+        break;
+    case 'validate':
+        $authController = new AuthController();
+        $authController->validateUser();
+        break;
+    case 'logout':
+        $authController = new AuthController();
+        $authController->logout();
+        break;    
     case 'category':
         $categoryController->getCategory($id);
         break;

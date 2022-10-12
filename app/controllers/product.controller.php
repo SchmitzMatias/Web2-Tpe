@@ -7,14 +7,18 @@ class ProductController{
 
     private $model;
     private $view;
+    private $authHelper;
 
     function __construct(){
         $this->model = new ProductModel;
         $this->categoryModel = new CategoryModel;
         $this->view = new ProductView;
+
+        $this->authHelper = new AuthHelper();
     }
 
     function getProducts(){
+        session_start(); //TODO este hizo que se vea el boton de logout (cuando aplique) al listar productos (que es free access)
         $products = $this->model->getAll();
         $categories = $this->categoryModel->getAll();
 
@@ -49,6 +53,7 @@ class ProductController{
     }
 
     function updateProduct($id){
+        $this->authHelper->checkLoggedIn();
         $categories = $this->categoryModel->getAll();
 
         $this->view->showUpdateProductForm($id,$categories);

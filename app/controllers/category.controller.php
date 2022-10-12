@@ -2,18 +2,22 @@
 
 require_once 'app/models/category.model.php';
 require_once 'app/views/category.view.php';
+require_once 'app/helpers/auth.helper.php';
 
 class CategoryController{
 
     private $model;
     private $view;
+    private $authHelper;
 
     function __construct(){
         $this->model = new CategoryModel;
         $this->view = new CategoryView;
+        $this->authHelper = new AuthHelper();
     }
 
     function showCategories(){
+        $this->authHelper->checkLoggedIn();
         $categories = $this->model->getAll();
 
         $this->view->showCategories($categories);

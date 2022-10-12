@@ -28,6 +28,16 @@
                   <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="category/list">Categorias</a>
                   </li>
+                  {if !isset($smarty.session.IS_LOGGED)}
+                    <li class="nav-item">
+                      <a class="nav-link" aria-current="page" href="login">Login</a>
+                    </li>
+                  {else} 
+                    <li class="nav-item ml-auto">
+                      <a class="nav-link" aria-current="page" href="logout">Logout ({$smarty.session.USER_EMAIL})</a>
+                    </li>
+                  {/if}
+
                 </ul>
               </div>
             </div>
