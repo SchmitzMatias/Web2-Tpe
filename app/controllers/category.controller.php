@@ -17,7 +17,7 @@ class CategoryController{
     }
 
     function showCategories(){
-        $this->authHelper->checkLoggedIn();
+        session_start();
         $categories = $this->model->getAll();
 
         $this->view->showCategories($categories);
@@ -30,6 +30,7 @@ class CategoryController{
     }
 
     function addCategory(){
+        $this->authHelper->checkLoggedIn();
         $name = $_POST['name'];
         $description = $_POST['description'];
 
@@ -44,10 +45,12 @@ class CategoryController{
     }
 
     function updateCategory($id){
+        $this->authHelper->checkLoggedIn();
         $this->view->showUpdateCategoryForm($id);
     }
 
     function saveCategoryUpdate($id){
+        $this->authHelper->checkLoggedIn();
         $name = $_POST['name'];
         $description = $_POST['description'];
         
@@ -66,6 +69,7 @@ class CategoryController{
     }
 
     function removeCategory($id) {
+        $this->authHelper->checkLoggedIn();
         $this->model->delete($id);
         header("Location: " . BASE_URL); 
     }

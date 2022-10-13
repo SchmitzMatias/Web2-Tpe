@@ -18,7 +18,7 @@ class ProductController{
     }
 
     function getProducts(){
-        session_start(); //TODO este hizo que se vea el boton de logout (cuando aplique) al listar productos (que es free access)
+        session_start();
         $products = $this->model->getAll();
         $categories = $this->categoryModel->getAll();
 
@@ -38,6 +38,7 @@ class ProductController{
     }
 
     function addProduct(){
+        $this->authHelper->checkLoggedIn();
         $name = $_POST['name'];
         $description = $_POST['description'];
         $price = $_POST['price'];
@@ -60,6 +61,7 @@ class ProductController{
     }
 
     function saveProductUpdate($id){
+        $this->authHelper->checkLoggedIn();
         $name = $_POST['name'];
         $description = $_POST['description'];
         $price = $_POST['price'];
@@ -84,6 +86,7 @@ class ProductController{
     }
 
     function removeProduct($id) {
+        $this->authHelper->checkLoggedIn();
         $this->model->delete($id);
         header("Location: " . BASE_URL); 
     }
