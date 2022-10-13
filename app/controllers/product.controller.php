@@ -32,9 +32,10 @@ class ProductController{
     }
 
     function getProductsByCategory($categoryId){
+        session_start();
         $products = $this->model->getAllByCategoryId($categoryId);
-
-        $this->view->showProducts($products,null); //TODO validar el null, repensarlo.
+        
+        $this->view->showProducts($products);
     }
 
     function getProduct($id){

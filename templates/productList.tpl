@@ -1,8 +1,10 @@
 {include file = "header.tpl"}
 <div class='my-4'>
-    <div class='productAdd'>
-        <a href='product/new' type='button' class='btn btn-success'>Nuevo</a>
-    </div>
+    {if isset($smarty.session.IS_LOGGED)}
+        <div class='productAdd'>
+            <a href='product/new' type='button' class='btn btn-success'>Nuevo</a>
+        </div>
+    {/if}
 
     <ul class="list-group">
         {foreach $products as $product}

@@ -47,7 +47,7 @@ class CategoryController{
         
         $id = $this->model->insert($name,$description); //TODO do something with this id or remove variable
 
-        header("Location: " . BASE_URL); 
+        header("Location: " . BASE_URL . "category/list"); 
     }
 
     function updateCategory($id){

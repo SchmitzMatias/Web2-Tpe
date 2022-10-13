@@ -32,7 +32,7 @@ class ProductModel{
     }
 
     function getAllByCategoryId($categoryId){
-        $query = $this->db->prepare('SELECT p.name, p.description, p.price, c.name as category from products p INNER JOIN categories c ON p.id_category_fk = c.id
+        $query = $this->db->prepare('SELECT p.id, p.name, p.description, p.price, c.name as category from products p INNER JOIN categories c ON p.id_category_fk = c.id
         WHERE p.id_category_fk = ?');
         $query->execute([$categoryId]);
 
