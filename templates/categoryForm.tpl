@@ -1,6 +1,6 @@
 {include "header.tpl"}
 
-<form action="category/add" method="POST" class="my-4">
+<form action="{$action}" method="POST" class="my-4">
     <div class="form-group">
         <label>Nombre</label>
         <input name="name" type="text" class="form-control" placeholder="inserte nombre categoria">
@@ -10,5 +10,5 @@
         <textarea name="description" class="form-control" rows="3" placeholder="inserte descripcion"></textarea>
     </div>
 
-    <button type="submit" class="btn btn-primary mt-2">Agregar</button>
+    <button type="submit" class="btn btn-primary mt-2">{$buttonText}</button>
 </form>

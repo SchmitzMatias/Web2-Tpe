@@ -1,6 +1,6 @@
 {include "header.tpl"}
 
-<form action="product/add" method="POST" class="my-4">
+<form action="{$action}" method="POST" class="my-4">
     <div class="row">
         <div class="col-5">
             <div class="form-group">
@@ -18,6 +18,7 @@
             <div class="form-group">
                 <label>Categoria</label>
                 <select class="form-control" name="category">
+                <option value="0">Elija una categoria</option>
                     {foreach $categories as $category}
                         <option value="{$category->id}">{$category->name}</option>
                     {/foreach}
@@ -30,5 +31,5 @@
         <textarea name="description" class="form-control" rows="3" placeholder="inserte descripcion"></textarea>
     </div>
 
-    <button type="submit" class="btn btn-primary mt-2">Agregar</button>
+    <button type="submit" class="btn btn-primary mt-2">{$buttonText}</button>
 </form>

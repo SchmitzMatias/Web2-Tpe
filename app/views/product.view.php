@@ -19,6 +19,9 @@ class ProductView{
 
     function showProductForm($categories){
         $this->smarty->assign('categories', $categories);
+        $this->smarty->assign('action',"product/add");
+        $this->smarty->assign('buttonText',"Agregar");
+
         $this->smarty->display('productForm.tpl');
     }
 
@@ -29,10 +32,11 @@ class ProductView{
     }
 
     function showUpdateProductForm($id,$categories){
-        $this->smarty->assign('id',$id);
         $this->smarty->assign('categories',$categories);
+        $this->smarty->assign('action',"product/save/$id");
+        $this->smarty->assign('buttonText',"Guardar");
 
-        $this->smarty->display('updateProductForm.tpl');
+        $this->smarty->display('productForm.tpl');
     }
 
     function showError($message){

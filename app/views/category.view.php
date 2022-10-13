@@ -16,6 +16,9 @@ class CategoryView{
     }
 
     function showCategoryForm(){
+        $this->smarty->assign('action',"category/add");
+        $this->smarty->assign('buttonText',"Agregar");
+
         $this->smarty->display('categoryForm.tpl');
     }
 
@@ -27,8 +30,10 @@ class CategoryView{
 
     function showUpdateCategoryForm($id){
         $this->smarty->assign('id',$id);
+        $this->smarty->assign('action',"category/save/$id");
+        $this->smarty->assign('buttonText',"Guardar");
 
-        $this->smarty->display('updateCategoryForm.tpl');
+        $this->smarty->display('categoryForm.tpl');
     }
 
     function showError($message){
