@@ -15,3 +15,8 @@ a:hover{
 .categoryView{
     display: flex;
 }
+
+.productAdd, .categoryAdd{
+    display: flex;
+    justify-content: flex-end;
+}

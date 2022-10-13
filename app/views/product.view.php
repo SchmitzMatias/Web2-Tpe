@@ -10,11 +10,16 @@ class ProductView{
         $this->smarty = new Smarty();
     }
 
-    function showProducts($products,$categories){
+    function showProducts($products){
         $this->smarty->assign('products', $products);
-        $this->smarty->assign('categories', $categories);
+        
 
         $this->smarty->display('productList.tpl');
+    }
+
+    function showProductForm($categories){
+        $this->smarty->assign('categories', $categories);
+        $this->smarty->display('productForm.tpl');
     }
 
     function showProduct($product){

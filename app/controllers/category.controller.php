@@ -16,11 +16,17 @@ class CategoryController{
         $this->authHelper = new AuthHelper();
     }
 
-    function showCategories(){
+    function getCategories(){
         session_start();
         $categories = $this->model->getAll();
 
         $this->view->showCategories($categories);
+    }
+
+    function showCategoryForm(){
+        session_start();
+
+        $this->view->showCategoryForm();
     }
 
     function getCategory($id){

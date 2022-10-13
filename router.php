@@ -43,7 +43,10 @@ switch ($path) {
         $categoryController->getCategory($id);
         break;
     case 'category/list':
-        $categoryController->showCategories();
+        $categoryController->getCategories();
+        break;
+    case 'category/new':
+        $categoryController->showCategoryForm();
         break;
     case 'category/add':
         $categoryController->addCategory();
@@ -70,6 +73,9 @@ switch ($path) {
         }else{
             $productController->getProducts();
         }
+        break;
+    case 'product/new':
+        $productController->showProductForm();
         break;
     case 'product/add':
         $productController->addProduct();

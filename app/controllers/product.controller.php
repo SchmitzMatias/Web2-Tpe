@@ -20,9 +20,15 @@ class ProductController{
     function getProducts(){
         session_start();
         $products = $this->model->getAll();
-        $categories = $this->categoryModel->getAll();
+        
 
-        $this->view->showProducts($products,$categories);
+        $this->view->showProducts($products);
+    }
+
+    function showProductForm(){
+        session_start();
+        $categories = $this->categoryModel->getAll();
+        $this->view->showProductForm($categories);
     }
 
     function getProductsByCategory($categoryId){

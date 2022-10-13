@@ -15,6 +15,10 @@ class CategoryView{
         $this->smarty->display('categoryList.tpl');
     }
 
+    function showCategoryForm(){
+        $this->smarty->display('categoryForm.tpl');
+    }
+
     function showCategory($category){
         $this->smarty->assign('category',$category);
 
