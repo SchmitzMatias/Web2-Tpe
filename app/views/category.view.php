@@ -9,8 +9,11 @@ class CategoryView{
         $this->smarty = new Smarty();
     }
 
-    function showCategories($categories){
+    function showCategories($categories,$error=null){
         $this->smarty->assign('categories', $categories);
+        if($error!=null){
+            $this->smarty->assign('error',$error);
+        }
 
         $this->smarty->display('categoryList.tpl');
     }

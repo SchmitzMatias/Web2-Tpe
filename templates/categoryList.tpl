@@ -22,4 +22,10 @@
     </ul>
 </div>
 
+{if isset($error)}
+    <div class='card text-center bg-warning'>
+        <h2>{$error}</h2>
+    </div>
+{/if}
+
 {include file="footer.tpl"}

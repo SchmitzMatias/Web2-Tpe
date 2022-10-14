@@ -76,7 +76,17 @@ class CategoryController{
 
     function removeCategory($id) {
         $this->authHelper->checkLoggedIn();
-        $this->model->delete($id);
-        header("Location: " . BASE_URL); 
+        try{
+            $this->model->delete($id);
+            header("Location: " . BASE_URL);
+        }
+        catch(PDOException $e){
+            $message = $e->getMessage();
+            if (str_contains($message,"Integrity constraint violation: 1451")){
+                $error = "No se pudo completar la accion, la categoria tiene productos asociados";
+                $categories = $this->model->getAll();
+                $this->view->showCategories($categories,$error);
+            }
+        }
     }
 }
