@@ -41,7 +41,14 @@ class ProductController{
     function getProduct($id){
         $product = $this->model->get($id);
 
-        $this->view->showProduct($product);
+        if(empty($product)){
+            $this->view->showError("Producto no encontrado");
+        }
+        else{
+            $this->view->showProduct($product);
+        }
+
+        
     }
 
     function addProduct(){

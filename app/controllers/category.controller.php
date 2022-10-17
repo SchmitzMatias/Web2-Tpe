@@ -32,7 +32,12 @@ class CategoryController{
     function getCategory($id){
         $category = $this->model->get($id);
 
-        $this->view->showCategory($category);
+        if(empty($category)){
+            $this->view->showError("Categoria no encontrada");
+        }
+        else{
+            $this->view->showCategory($category);
+        }
     }
 
     function addCategory(){
@@ -45,7 +50,7 @@ class CategoryController{
             die();
         }
         
-        $id = $this->model->insert($name,$description); //TODO do something with this id or remove variable
+        $this->model->insert($name,$description);
 
         header("Location: " . BASE_URL . "category/list"); 
     }
