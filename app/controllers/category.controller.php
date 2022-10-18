@@ -76,14 +76,14 @@ class CategoryController{
 
         $this->model->update($id,$category->name,$category->description);
         
-        header("Location: " . BASE_URL);
+        header("Location: " . BASE_URL . "category/list"); 
     }
 
     function removeCategory($id) {
         $this->authHelper->checkLoggedIn();
         try{
             $this->model->delete($id);
-            header("Location: " . BASE_URL);
+            header("Location: " . BASE_URL . "category/list"); 
         }
         catch(PDOException $e){
             $message = $e->getMessage();

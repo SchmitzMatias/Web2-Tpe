@@ -20,7 +20,7 @@
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                   <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="">Inicio</a> {* TODO porqué al clickear acá manda a inicio? *}
+                    <a class="nav-link" aria-current="page" href="">Inicio</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="product/list">Productos</a>

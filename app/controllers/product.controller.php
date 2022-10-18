@@ -39,6 +39,7 @@ class ProductController{
     }
 
     function getProduct($id){
+        session_start();
         $product = $this->model->get($id);
 
         if(empty($product)){
@@ -62,7 +63,7 @@ class ProductController{
             die();
         }
         
-        $id = $this->model->insert($name,$description, $price, $category);
+        $this->model->insert($name,$description, $price, $category);
 
         header("Location: " . BASE_URL); 
     }
@@ -79,7 +80,7 @@ class ProductController{
         $name = $_POST['name'];
         $description = $_POST['description'];
         $price = $_POST['price'];
-        $category = $_POST['category']; //TODO this has to be a id_cat_fk, not name, maybe add cat_id on product? on top of name i mean.
+        $category = $_POST['category'];
         $product = $this->model->get($id);
 
         if(!empty($name)){
@@ -94,7 +95,7 @@ class ProductController{
         if(!empty($category) && $category!=0){
             $product->id_category_fk= $category;
         }
-        $this->model->update($id,$product->name,$product->description,$product->price,$product->id_category_fk);
+        $this->model->update($id,$product->name,$product->description,$product->price,$product->id_category_fk); 
 
         header("Location: " . BASE_URL);
     }

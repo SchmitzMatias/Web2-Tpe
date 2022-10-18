@@ -9,7 +9,7 @@
     <ul class="list-group">
         {foreach $products as $product}
             <li class='list-group-item d-flex justify-content-between align-items-center'>
-                <span> <b><a href='product/{$product->id}'>{$product->name}</a></b> - {$product->description|truncate:500} - {$product->price} - {$product->category}</span>
+                <span> <b><a href='product/{$product->id}'>{$product->name}</a></b> - {$product->price} - {$product->category}</span>
                 {if isset($smarty.session.IS_LOGGED)}
                     <div class="ml-auto">
                         <a href='product/update/{$product->id}' type='button' class='btn btn-primary ml-auto'>Actualizar</a>

@@ -19,9 +19,9 @@
                 <label>Categoria</label>
                 <select class="form-control" name="category">
                 <option value="0">Elija una categoria</option>
-                    {foreach $categories as $category}
-                        <option value="{$category->id}">{$category->name}</option>
-                    {/foreach}
+                {foreach $categories as $category}
+                    <option value="{$category->id}">{$category->name}</option>
+                {/foreach}
                 </select>
             </div>
         </div>

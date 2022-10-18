@@ -40,7 +40,9 @@ switch ($path) {
         $authController->logout();
         break;    
     case 'category':
-        $categoryController->getCategory($id);
+        if(isset($id)){
+            $categoryController->getCategory($id);
+        }
         break;
     case 'category/list':
         $categoryController->getCategories();
@@ -64,7 +66,9 @@ switch ($path) {
         $categoryController->removeCategory($id);
         break;
     case 'product':
-        $productController->getProduct($id);
+        if(isset($id)){
+            $productController->getProduct($id);
+        }
         break;
     case 'product/list':
         if(!empty($params[2])&&is_numeric($params[2])){
@@ -94,6 +98,6 @@ switch ($path) {
         break;
     default:
         header("HTTP/1.0 404 Not Found");
-        echo('404 Page not found'); //esto rompe un poco el mvc
+        echo('404 Page not found');
         break;
 }

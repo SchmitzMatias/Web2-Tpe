@@ -23,7 +23,7 @@ class ProductModel{
     }
 
     function get($id){
-        $query = $this->db->prepare('SELECT * from products WHERE id=?');
+        $query = $this->db->prepare('SELECT p.id , p.name, p.description, p.price, p.id_category_fk, c.name as category from products p INNER JOIN categories c ON p.id_category_fk = c.id WHERE p.id=?');
         $query->execute([$id]);
 
         $product = $query->fetch(PDO::FETCH_OBJ);
